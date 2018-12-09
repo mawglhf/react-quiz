@@ -1,10 +1,23 @@
 import React from "react";
-import { CSSTransitionGroup } from "react-transition-group";
+// import { CSSTransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import QuestionCount from "./QuestionCount";
 import QuestionChoice from "./QuestionChoice";
 
 function Quiz(props) {
+  const renderQuestionChoices = (choice, i) => {
+    return (
+      <QuestionChoice
+        key={i}
+        correctChoice={props.correctChoice}
+        choice={choice}
+        disabled={props.userAnswer}
+        wasAnswered={props.userAnswer}
+        onAnswerSelection={props.onAnswerSelection}
+      />
+    );
+  };
+
   return (
     <div>
       Quiz
@@ -13,17 +26,7 @@ function Quiz(props) {
         total={props.questionTotal}
       />
       <Question question={props.question} />
-      {props.choices.map((choice, i) => {
-        return (
-          <QuestionChoice
-            key={i}
-            correctChoice={props.correctChoice}
-            choice={choice}
-            wasAnswered={props.userAnswer}
-            onAnswerSelection={props.onAnswerSelection}
-          />
-        );
-      })}
+      {props.choices.map(renderQuestionChoices)}
     </div>
   );
 }

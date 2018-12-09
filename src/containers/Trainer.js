@@ -5,6 +5,7 @@
 import React, { Component } from "react";
 import questions from "../api/questions";
 import Quiz from "../components/Quiz";
+import Results from "../components/Results";
 
 class Trainer extends Component {
   constructor(props) {
@@ -44,8 +45,6 @@ class Trainer extends Component {
       allAnswers: [...state.allAnswers, answer]
     }));
 
-    // Call a function to change the button styling
-
     this.checkIfQuizOver();
   }
 
@@ -81,10 +80,7 @@ class Trainer extends Component {
 
   renderResults() {
     return (
-      <h2>
-        Score <span>{this.state.score}</span> /{" "}
-        <span>{this.state.allAnswers.length}</span>{" "}
-      </h2>
+      <Results score={this.state.score} questionTotal={questions.length} />
     );
   }
 

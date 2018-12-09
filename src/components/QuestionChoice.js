@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class QuestionChoice extends Component {
+class QuestionChoice extends Component {
   checkStyling() {
     if (this.props.choice === this.props.correctChoice) {
       return "correct";
@@ -12,6 +12,7 @@ export default class QuestionChoice extends Component {
     return (
       <button
         type="button"
+        disabled={this.props.wasAnswered}
         className={this.props.wasAnswered ? this.checkStyling() : "button"}
         value={this.props.choice}
         onClick={this.props.onAnswerSelection}
@@ -21,3 +22,5 @@ export default class QuestionChoice extends Component {
     );
   }
 }
+
+export default QuestionChoice;

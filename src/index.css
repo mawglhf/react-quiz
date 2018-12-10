@@ -122,15 +122,15 @@ button {
 
 /* Animation */
 .fade-enter {
-  opacity: 0;
+  opacity: 0.01;
 }
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 0.5s ease-in-out 0.3s;
+  transition: opacity 500ms ease-in;
 }
 
-.fade-leave {
+.fade-exit {
   position: absolute;
   top: 0;
   left: 0;
@@ -138,16 +138,24 @@ button {
   opacity: 1;
 }
 
-.fade-leave.fade-leave-active {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
 }
 
-.fade-appear {
-  opacity: 0;
+.quizComponent {
+  animation-duration: 1s;
+  animation-name: slidein;
 }
 
-.fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }

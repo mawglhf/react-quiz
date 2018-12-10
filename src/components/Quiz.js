@@ -1,5 +1,4 @@
 import React from "react";
-// import { CSSTransitionGroup } from "react-transition-group";
 import Question from "./Question";
 import QuestionCount from "./QuestionCount";
 import QuestionChoice from "./QuestionChoice";
@@ -19,7 +18,7 @@ function Quiz(props) {
   };
 
   return (
-    <div>
+    <div className="quizComponent">
       Quiz
       <QuestionCount
         questionId={props.questionId}

@@ -18,14 +18,14 @@ function Quiz(props) {
   };
 
   return (
-    <div className="quizComponent">
-      Quiz
+    <div className="quizComponent" key={props.questionId}>
       <QuestionCount
         questionId={props.questionId}
         total={props.questionTotal}
       />
       <Question question={props.question} />
-      {props.choices.map(renderQuestionChoices)}
+      <img src={props.image} alt="" />
+      <div>{props.choices.map(renderQuestionChoices)}</div>
     </div>
   );
 }

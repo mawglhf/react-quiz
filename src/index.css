@@ -120,31 +120,8 @@ button {
   border-color: #dc3545;
 }
 
-/* Animation */
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.fade-exit {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 500ms ease-in;
-}
-
 .quizComponent {
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: slidein;
 }
 

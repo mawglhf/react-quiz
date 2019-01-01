@@ -1,7 +1,3 @@
-/**
- * Equivalent to the App.js file in Quiz.js
- * Contains all Logic and State for the Trainer
- */
 import React, { Component } from "react";
 import questions from "../api/questions";
 import Quiz from "../components/Quiz";
@@ -14,6 +10,7 @@ class Trainer extends Component {
       questionIndex: 0,
       question: "",
       questionChoices: [],
+      questionImage: "",
       correctChoice: "",
       userAnswer: "",
       allAnswers: [],
@@ -23,13 +20,13 @@ class Trainer extends Component {
   }
 
   componentWillMount() {
-    const { question, choices, correctChoice } = questions[0];
+    const { question, choices, correctChoice, image } = questions[0];
     this.setState({
       question: question,
       questionChoices: choices,
-      correctChoice: correctChoice
+      correctChoice: correctChoice,
+      questionImage: image
     });
-    console.log(question);
   }
 
   handleAnswerSelection(event) {
@@ -62,13 +59,16 @@ class Trainer extends Component {
 
   setNextQuestion() {
     const nextQuestionIndex = this.state.questionIndex + 1;
-    const { question, choices, correctChoice } = questions[nextQuestionIndex];
+    const { question, choices, correctChoice, image } = questions[
+      nextQuestionIndex
+    ];
     this.setState({
       userAnswer: "",
       questionIndex: nextQuestionIndex,
       question: question,
       questionChoices: choices,
-      correctChoice: correctChoice
+      correctChoice: correctChoice,
+      questionImage: image
     });
   }
 
@@ -87,6 +87,7 @@ class Trainer extends Component {
   renderQuiz() {
     return (
       <Quiz
+        image={this.state.questionImage}
         correctChoice={this.state.correctChoice}
         userAnswer={this.state.userAnswer}
         choices={this.state.questionChoices}
